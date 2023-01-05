@@ -1,0 +1,39 @@
+@import './minimal.css';
+
+:root {
+  --star-size: 14px;
+  --star-color: #ccc;
+  --star-background: #fc0;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+}
+
+.rating {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  line-height: 1;
+
+  &:before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    font-family: Times; // make sure ★ appears correctly
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:after {
+    content: attr(data-count);
+    display: inline;
+    margin-left: 5px;
+  }
+}
+
+.center {
+  text-align: center;
+}
