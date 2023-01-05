@@ -3,7 +3,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/',
+  base: '',
   build: {
     outDir: 'docs',
     sourcemap: false,

@@ -11,6 +11,17 @@
   top: 0;
 }
 
+.logo {
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+
 .rating {
   --percent: calc(var(--rating) / 5 * 100%);
 

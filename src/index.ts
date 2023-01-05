@@ -42,6 +42,13 @@ export class AppComponent {
         <header class="layout sticky-header">
           <nav>
             <ul>
+              <li>
+                <a href="#" class="logo" onclick=${(e) => this.navigate(e, '/products')}>
+                  <img src="./images/logo.jpg" />
+                </a>
+              </li>
+            </ul>
+            <ul>
               <li><a href="#" onclick=${(e) => this.navigate(e, '/products')}>Products</a></li>
               <li><a href="#" onclick=${(e) => this.navigate(e, '/cart')}>Cart</a></li>
             </ul>
