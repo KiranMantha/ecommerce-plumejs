@@ -57,6 +57,9 @@ export class AppComponent {
         <main>
           <router-outlet></router-outlet>
         </main>
+        <footer class="layout">
+          <a href="https://github.com/KiranMantha/ecommerce-plumejs">Source code</a>
+        </footer>
       </div>
     `;
   }
