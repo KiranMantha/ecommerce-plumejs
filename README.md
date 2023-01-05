@@ -1,6 +1,6 @@
 # Ecommerce app with PlumeJS
 
-PlumeJS template with vite bundler. [Demo](https://kiranmantha.github.io/ecommerce-plumejs/).
+[PlumeJS](https://www.npmjs.com/package/@plumejs/core) template with vite bundler. [Demo](https://kiranmantha.github.io/ecommerce-plumejs/).
 
 ## To run the app
 
