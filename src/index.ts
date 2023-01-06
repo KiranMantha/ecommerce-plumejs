@@ -1,5 +1,7 @@
 import { Component, html } from '@plumejs/core';
 import { Router } from '@plumejs/router';
+import { Subscription } from 'rxjs';
+import { AppService } from './common/app.service';
 // as per https://github.com/vitejs/vite/pull/2148
 import styles from './styles/base.scss?inline';
 
@@ -7,12 +9,15 @@ import styles from './styles/base.scss?inline';
   selector: 'app-root',
   styles: styles,
   root: true,
-  deps: [Router]
+  deps: [Router, AppService]
 })
 export class AppComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private appService: AppService) {
     Router.registerRoutes(this.routes, false);
   }
+
+  private cartCounterRef: HTMLElement;
+  private subscriptions = new Subscription();
 
   routes = [
     {
@@ -30,6 +35,18 @@ export class AppComponent {
       templatePath: () => import('./cart')
     }
   ];
+
+  mount() {
+    this.subscriptions.add(
+      this.appService.getCartCount().subscribe((count) => {
+        this.cartCounterRef.innerHTML = `${count}`;
+      })
+    );
+  }
+
+  unmount() {
+    this.subscriptions.unsubscribe();
+  }
 
   navigate(e: Event, path: string) {
     e.preventDefault();
@@ -50,7 +67,16 @@ export class AppComponent {
             </ul>
             <ul>
               <li><a href="#" onclick=${(e) => this.navigate(e, '/products')}>Products</a></li>
-              <li><a href="#" onclick=${(e) => this.navigate(e, '/cart')}>Cart</a></li>
+              <li>
+                <a href="#" onclick=${(e) => this.navigate(e, '/cart')}
+                  >Cart (<span
+                    ref=${(node) => {
+                      this.cartCounterRef = node;
+                    }}
+                  ></span
+                  >)</a
+                >
+              </li>
             </ul>
           </nav>
         </header>
