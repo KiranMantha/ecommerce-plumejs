@@ -1,10 +1,24 @@
-.cart-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+.cart-container {
+  container-type: inline-size;
+  container-name: cart-container;
+  .cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 
-  img {
-    border-radius: 4px;
-    height: 200px;
+    img {
+      border-radius: 4px;
+      height: 200px;
+    }
+  }
+}
+
+@container cart-container (max-width: 450px) {
+  .cart-item {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+    }
   }
 }

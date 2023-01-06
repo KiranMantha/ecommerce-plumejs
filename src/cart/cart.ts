@@ -21,7 +21,7 @@ export class Cart {
 
   render() {
     if (this.cartItems.length) {
-      return html`<div>
+      return html`<div class="cart-container">
         ${this.cartItems.map(
           (item, index) => html`<section class="cart-item">
             <img src="${item.image}" />
