@@ -1,13 +1,11 @@
 .products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
   .product {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 1;
     margin-bottom: 0;
 
     img {
@@ -26,5 +24,21 @@
         text-align: right;
       }
     }
+  }
+
+  @media (max-width: 375px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 376px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
